@@ -6,13 +6,33 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 enum RCAppStore {
     // State
-    struct RCAppState: Equatable {
-        var counters: IdentifiedArrayOf<RCounter> = [RCounter(count: 0), RCounter(count: 1), RCounter(count: 0), RCounter(count: 0)]
+    struct RCAppState: Equatable, Codable {
+        var counters: IdentifiedArrayOf<RCounter> = []
+        
+        private static let userDefaultsKey = "RCAppState"
+
+        // UserDefaults から状態を読み込む
+        static func load() -> RCAppState {
+            guard let data = UserDefaults.standard.data(forKey: userDefaultsKey) else {
+                return RCAppState()
+            }
+            let decoder = JSONDecoder()
+            return (try? decoder.decode(RCAppState.self, from: data)) ?? RCAppState()
+        }
+
+        // UserDefaults に保存する
+        func save() {
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(self) {
+                UserDefaults.standard.set(data, forKey: RCAppState.userDefaultsKey)
+            }
+        }
     }
     
-    // 単一のStoreを提供
-    static let store = Store(initialState: RCAppState(), reducer: { CounterReducer() })
+    // UserDefaults から読み込んだ初期状態を使用
+    static let store = Store(initialState: RCAppState.load(), reducer: { CounterReducer() })
 }

@@ -33,7 +33,13 @@ struct CounterReducer: Reducer {
         case let .updateMemo(counterID, newMemo):
             self.updateCounterMemo(in: &state, counterID: counterID, newMemo: newMemo)
         }
+        
+        saveState(state)
         return .none
+    }
+    
+    private func saveState(_ state: RCAppStore.RCAppState) {
+        state.save()
     }
     
     private func addCounter(to state: inout RCAppStore.RCAppState, initialValue: Int) {

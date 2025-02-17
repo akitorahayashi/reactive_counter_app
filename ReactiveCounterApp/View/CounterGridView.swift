@@ -40,7 +40,6 @@ struct CounterGridView: View {
                         .padding(.horizontal, 10)
                         .padding(.vertical, 10)
                     }
-                    // 右下に「+」ボタンをフローティングする例
                     VStack {
                         Spacer()
                         HStack {

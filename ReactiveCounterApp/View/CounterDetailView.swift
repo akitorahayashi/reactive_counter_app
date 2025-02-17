@@ -25,12 +25,13 @@ struct CounterDetailView: View {
     }
 
     var body: some View {
-        VStack {
-            counterValueSection
-            Divider()
-            titleAndMemoSection
-            Spacer()
-        }
+            VStack {
+                counterValueSection
+                Divider()
+                titleAndMemoSection
+                Spacer()
+            }
+        
         .navigationTitle("Counter Detail")
         // 画面から離れるときにViewStoreへ送信して更新
         .onDisappear {
@@ -71,20 +72,22 @@ struct CounterDetailView: View {
                 }
                 Spacer()
             }
-            .frame(width: geometry.size.width, height: geometry.size.width)
+            .frame(width: geometry.size.width, height: 120)
         }
-        .frame(height: UIScreen.main.bounds.width)
+        .frame(height: 120)
     }
 
     // MARK: - タイトル & メモ入力フォーム
     private var titleAndMemoSection: some View {
-        Form {
-            Section(header: Text("Title").foregroundColor(.gray)) {
-                TextField("タイトルを入力", text: $title)
-            }
-            Section(header: Text("Memo").foregroundColor(.gray)) {
-                TextEditor(text: $memo)
-                    .frame(minHeight: 80)
+        VStack {
+            Form {
+                Section(header: Text("Title").foregroundColor(.gray)) {
+                    TextField("タイトルを入力", text: $title)
+                }
+                Section(header: Text("Memo").foregroundColor(.gray)) {
+                    TextEditor(text: $memo)
+                        .frame(minHeight: 80)
+                }
             }
         }
     }
