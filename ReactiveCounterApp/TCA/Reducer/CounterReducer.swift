@@ -5,8 +5,8 @@
 //  Created by 林 明虎 on 2025/02/17.
 //
 
-import ComposableArchitecture
 import Foundation
+import ComposableArchitecture
 
 struct CounterReducer: Reducer {
     typealias State = RCAppStore.RCAppState
@@ -34,12 +34,8 @@ struct CounterReducer: Reducer {
             self.updateCounterMemo(in: &state, counterID: counterID, newMemo: newMemo)
         }
         
-        saveState(state)
+        try? UserDefaultsManager.shared.save(state, forKey: .rcAppState)
         return .none
-    }
-    
-    private func saveState(_ state: RCAppStore.RCAppState) {
-        state.save()
     }
     
     private func addCounter(to state: inout RCAppStore.RCAppState, initialValue: Int) {
