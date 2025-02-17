@@ -13,8 +13,8 @@ struct RCounter: Identifiable, Codable, Equatable {
     var title: String?
     var memo: String?
     
-    init(count: Int, title: String? = nil, memo: String? = nil) {
-        self.id = UUID()
+    init(id: UUID, count: Int, title: String? = nil, memo: String? = nil) {
+        self.id = id
         self.count = count
         self.title = title
         self.memo = memo

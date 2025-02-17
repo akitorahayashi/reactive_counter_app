@@ -15,8 +15,8 @@ struct CounterReducer: Reducer {
     func reduce(into state: inout RCAppStore.RCAppState, action: CounterAction) -> Effect<CounterAction> {
         switch action {
             
-        case let .addCounter(initialValue):
-            self.addCounter(to: &state, initialValue: initialValue)
+        case let .addCounter(counterID, initialValue):
+            self.addCounter(to: &state, counterID: counterID, initialValue: initialValue)
             
         case let .deleteCounter(counterID):
             self.deleteCounter(in: &state, counterID: counterID)
@@ -38,8 +38,8 @@ struct CounterReducer: Reducer {
         return .none
     }
     
-    private func addCounter(to state: inout RCAppStore.RCAppState, initialValue: Int) {
-        state.counters.append(RCounter(count: initialValue))
+    private func addCounter(to state: inout RCAppStore.RCAppState, counterID: UUID, initialValue: Int) {
+        state.counters.append(RCounter(id: counterID, count: initialValue))
     }
     
     private func deleteCounter(in state: inout RCAppStore.RCAppState, counterID: UUID) {

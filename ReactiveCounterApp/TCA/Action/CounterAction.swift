@@ -8,7 +8,7 @@
 import Foundation
 
 enum CounterAction {
-    case addCounter(initialValue: Int)
+    case addCounter(UUID, Int)
     case deleteCounter(UUID)
     case increaseCount(UUID)
     case decreaseCount(UUID)

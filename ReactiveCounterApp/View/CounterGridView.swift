@@ -96,7 +96,7 @@ struct CounterGridView: View {
                 },
                 trailing: Button("OK") {
                     if let intValue = Int(newCounterValue) {
-                        viewStore.send(.addCounter(initialValue: intValue))
+                        viewStore.send(.addCounter(UUID(), intValue))
                     }
                     newCounterValue = ""
                     showingAddCounterSheet = false

@@ -10,7 +10,7 @@
 		1B2C33C22D6327900053F693 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2C33C12D63278F0053F693 /* WidgetKit.framework */; };
 		1B2C33C42D6327900053F693 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2C33C32D6327900053F693 /* SwiftUI.framework */; };
 		1B2C33D32D6327910053F693 /* SingleCounterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1B2C33BF2D63278F0053F693 /* SingleCounterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1B923DE42D62B9E6001B3A0F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1B923DE32D62B9E6001B3A0F /* ComposableArchitecture */; };
+		1BE0A3382D63F128003E121C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1BE0A3372D63F128003E121C /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +69,17 @@
 			);
 			target = 1B2C33BE2D63278F0053F693 /* SingleCounterWidgetExtension */;
 		};
+		1BE0A33A2D63F267003E121C /* Exceptions for "ReactiveCounterApp" folder in "ReactiveCounterAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/RCounter.swift,
+				TCA/Action/CounterAction.swift,
+				TCA/Reducer/CounterReducer.swift,
+				TCA/Store/RCAppStore.swift,
+				Util/UserDefaultsManager.swift,
+			);
+			target = 1B49002C2D61458B0067B7A3 /* ReactiveCounterAppTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +93,9 @@
 		};
 		1B49001F2D6145890067B7A3 /* ReactiveCounterApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1BE0A33A2D63F267003E121C /* Exceptions for "ReactiveCounterApp" folder in "ReactiveCounterAppTests" target */,
+			);
 			path = ReactiveCounterApp;
 			sourceTree = "<group>";
 		};
@@ -111,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B923DE42D62B9E6001B3A0F /* ComposableArchitecture in Frameworks */,
+				1BE0A3382D63F128003E121C /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +223,7 @@
 			);
 			name = ReactiveCounterApp;
 			packageProductDependencies = (
-				1B923DE32D62B9E6001B3A0F /* ComposableArchitecture */,
+				1BE0A3372D63F128003E121C /* ComposableArchitecture */,
 			);
 			productName = ReactiveCounterApp;
 			productReference = 1B49001D2D6145890067B7A3 /* ReactiveCounterApp.app */;
@@ -297,7 +311,7 @@
 			mainGroup = 1B4900142D6145890067B7A3;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1B923DE22D62B9E6001B3A0F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				1BE0A3362D63F128003E121C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1B49001E2D6145890067B7A3 /* Products */;
@@ -751,7 +765,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1B923DE22D62B9E6001B3A0F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		1BE0A3362D63F128003E121C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
@@ -762,9 +776,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1B923DE32D62B9E6001B3A0F /* ComposableArchitecture */ = {
+		1BE0A3372D63F128003E121C /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1B923DE22D62B9E6001B3A0F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 1BE0A3362D63F128003E121C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
