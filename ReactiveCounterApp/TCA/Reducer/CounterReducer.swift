@@ -31,8 +31,7 @@ struct CounterReducer: Reducer {
             self.updateCounterTitle(in: &state, counterID: counterID, newTitle: newTitle)
             
         case let .updateMemo(counterID, newMemo):
-            self.updateCounterMemo(in: &state, counterID: counterID, newMwmo: newMemo)
-            
+            self.updateCounterMemo(in: &state, counterID: counterID, newMemo: newMemo)
         }
         return .none
     }
@@ -57,7 +56,7 @@ struct CounterReducer: Reducer {
         state.counters[id: counterID]?.title = newTitle
     }
     
-    private func updateCounterMemo(in state: inout RCAppStore.RCAppState, counterID: UUID, newMwmo: String?) {
-        state.counters[id: counterID]?.memo = newMwmo
+    private func updateCounterMemo(in state: inout RCAppStore.RCAppState, counterID: UUID, newMemo: String?) {
+        state.counters[id: counterID]?.memo = newMemo
     }
 }
