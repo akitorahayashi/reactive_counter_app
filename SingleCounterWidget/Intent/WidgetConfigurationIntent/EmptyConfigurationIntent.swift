@@ -7,7 +7,14 @@
 
 import AppIntents
 
-struct EmptyConfigurationIntent: WidgetConfigurationIntent {
+struct CounterSelectionIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Counter Widget"
     static var description = IntentDescription("A single counter widget.")
+    
+    @Parameter(title: "Select Counter", default: nil)
+    var selectedCounter: CounterSelectionAppEntity?
+    
+    static var parameterSummary: some ParameterSummary {
+        Summary("Select Counter: \(\.$selectedCounter)")
+    }
 }

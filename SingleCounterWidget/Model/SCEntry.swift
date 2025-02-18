@@ -9,5 +9,5 @@ import WidgetKit
 
 struct SCEntry: TimelineEntry {
     let date: Date
-    let count: Int
+    let entity: CounterSelectionAppEntity?
 }
