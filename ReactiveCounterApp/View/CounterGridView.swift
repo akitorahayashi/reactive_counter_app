@@ -13,6 +13,8 @@ struct CounterGridView: View {
     
     let store: StoreOf<CounterReducer>
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     @State private var showingAddCounterSheet = false
     @State private var newCounterValue = ""
     
@@ -48,7 +50,16 @@ struct CounterGridView: View {
                                 .padding()
                         }
                     }
+                }.onAppear {
+                    viewStore.send(.loadCounters) // アプリ起動時に最新の状態を取得
                 }
+                // バックグラウンド復帰時にデータを再読み込み
+                .onChange(of: scenePhase) { oldPhase, newPhase in
+                    if newPhase == .active {
+                        viewStore.send(.loadCounters)
+                    }
+                }
+
                 .navigationTitle("Counter Grid")
                 .sheet(isPresented: $showingAddCounterSheet) {
                     addCounterSheet(viewStore)

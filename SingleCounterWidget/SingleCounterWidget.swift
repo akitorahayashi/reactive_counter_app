@@ -10,10 +10,10 @@ import SwiftUI
 
 // ウィジェットの定義
 struct SingleCounterWidget: Widget {
-    let kind: String = "SingleCounterWidget"
+    static let kind: String = "SingleCounterWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: EmptyConfigurationIntent.self, provider: SimpleProvider()) { entry in
+        AppIntentConfiguration(kind: SingleCounterWidget.kind, intent: EmptyConfigurationIntent.self, provider: SimpleProvider()) { entry in
             SingleCounterWidgetView(entry: entry)
         }
         .configurationDisplayName("Single Counter")
