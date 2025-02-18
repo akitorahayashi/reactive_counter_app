@@ -7,6 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+import WidgetKit
 
 struct CounterReducer: Reducer {
     typealias State = RCAppStore.RCAppState
@@ -32,9 +33,14 @@ struct CounterReducer: Reducer {
             
         case let .updateMemo(counterID, newMemo):
             self.updateCounterMemo(in: &state, counterID: counterID, newMemo: newMemo)
+            
+        case .loadCounters:
+            state = Self.loadCounters()
         }
         
-        try? UserDefaultsManager.shared.save(state, forKey: .rcAppState)
+        
+        self.updateSingleCounterWIdget()
+        try? UserDefaultsManager.shared.save(state, forKey: .rcAppStateKey)
         return .none
     }
     
@@ -60,5 +66,15 @@ struct CounterReducer: Reducer {
     
     private func updateCounterMemo(in state: inout RCAppStore.RCAppState, counterID: UUID, newMemo: String?) {
         state.counters[id: counterID]?.memo = newMemo
+    }
+    
+    private static func loadCounters() -> RCAppStore.RCAppState {
+        return UserDefaultsManager.shared.load(forKey: .rcAppStateKey) ?? RCAppStore.RCAppState()
+    }
+    
+    // MARK: - Widget
+    private func updateSingleCounterWIdget() {
+        WidgetCenter.shared.reloadTimelines(ofKind: "SingleCounterWidget")
+        print("updated")
     }
 }

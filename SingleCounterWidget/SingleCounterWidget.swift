@@ -9,19 +9,14 @@ import WidgetKit
 import SwiftUI
 
 struct SingleCounterWidget: Widget {
-    let kind: String = "SingleCounterWidget"
+    static let kind: String = "SingleCounterWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: SCProvider()) { entry in
-            SingleCounterWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+        AppIntentConfiguration(kind: SingleCounterWidget.kind, intent: CounterSelectionIntent.self, provider: SCProvider()) { entry in
+            SingleCounterWidgetView(entry: entry)
         }
+        .configurationDisplayName("Single Counter")
+        .description("A widget with a single counter, plus and minus buttons.")
+        .supportedFamilies([.systemMedium])
     }
-}
-
-#Preview(as: .systemSmall) {
-    SingleCounterWidget()
-} timeline: {
-    SCEntry(date: .now, configuration: .smiley)
-    SCEntry(date: .now, configuration: .starEyes)
 }

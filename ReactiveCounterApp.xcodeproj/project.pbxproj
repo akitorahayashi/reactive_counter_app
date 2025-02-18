@@ -10,6 +10,7 @@
 		1B2C33C22D6327900053F693 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2C33C12D63278F0053F693 /* WidgetKit.framework */; };
 		1B2C33C42D6327900053F693 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2C33C32D6327900053F693 /* SwiftUI.framework */; };
 		1B2C33D32D6327910053F693 /* SingleCounterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1B2C33BF2D63278F0053F693 /* SingleCounterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1B75E6A62D64B4A800844E23 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1B75E6A52D64B4A800844E23 /* ComposableArchitecture */; };
 		1BE0A3382D63F128003E121C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1BE0A3372D63F128003E121C /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
@@ -69,16 +70,51 @@
 			);
 			target = 1B2C33BE2D63278F0053F693 /* SingleCounterWidgetExtension */;
 		};
-		1BE0A33A2D63F267003E121C /* Exceptions for "ReactiveCounterApp" folder in "ReactiveCounterAppTests" target */ = {
+		1B75E6842D64AF3300844E23 /* Exceptions for "Model" folder in "ReactiveCounterAppTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Model/RCounter.swift,
-				TCA/Action/CounterAction.swift,
-				TCA/Reducer/CounterReducer.swift,
-				TCA/Store/RCAppStore.swift,
-				Util/UserDefaultsManager.swift,
+				RCounter.swift,
 			);
 			target = 1B49002C2D61458B0067B7A3 /* ReactiveCounterAppTests */;
+		};
+		1B75E6852D64AF3300844E23 /* Exceptions for "Model" folder in "SingleCounterWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				RCounter.swift,
+			);
+			target = 1B2C33BE2D63278F0053F693 /* SingleCounterWidgetExtension */;
+		};
+		1B75E68B2D64AF4100844E23 /* Exceptions for "Util" folder in "ReactiveCounterAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UserDefaultsManager.swift,
+			);
+			target = 1B49002C2D61458B0067B7A3 /* ReactiveCounterAppTests */;
+		};
+		1B75E68C2D64AF4100844E23 /* Exceptions for "Util" folder in "SingleCounterWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UserDefaultsManager.swift,
+			);
+			target = 1B2C33BE2D63278F0053F693 /* SingleCounterWidgetExtension */;
+		};
+		1B75E69B2D64AF7900844E23 /* Exceptions for "TCA" folder in "ReactiveCounterAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Action/CounterAction.swift,
+				Reducer/CounterReducer.swift,
+				Store/RCAppStore.swift,
+			);
+			target = 1B49002C2D61458B0067B7A3 /* ReactiveCounterAppTests */;
+		};
+		1B75E69C2D64AF7900844E23 /* Exceptions for "TCA" folder in "SingleCounterWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Action/CounterAction.swift,
+				Reducer/CounterReducer.swift,
+				Store/RCAppStore.swift,
+			);
+			target = 1B2C33BE2D63278F0053F693 /* SingleCounterWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -93,9 +129,6 @@
 		};
 		1B49001F2D6145890067B7A3 /* ReactiveCounterApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1BE0A33A2D63F267003E121C /* Exceptions for "ReactiveCounterApp" folder in "ReactiveCounterAppTests" target */,
-			);
 			path = ReactiveCounterApp;
 			sourceTree = "<group>";
 		};
@@ -109,6 +142,33 @@
 			path = ReactiveCounterAppUITests;
 			sourceTree = "<group>";
 		};
+		1B75E6802D64AF3300844E23 /* Model */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1B75E6842D64AF3300844E23 /* Exceptions for "Model" folder in "ReactiveCounterAppTests" target */,
+				1B75E6852D64AF3300844E23 /* Exceptions for "Model" folder in "SingleCounterWidgetExtension" target */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B75E6872D64AF4100844E23 /* Util */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1B75E68B2D64AF4100844E23 /* Exceptions for "Util" folder in "ReactiveCounterAppTests" target */,
+				1B75E68C2D64AF4100844E23 /* Exceptions for "Util" folder in "SingleCounterWidgetExtension" target */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		1B75E6932D64AF7900844E23 /* TCA */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1B75E69B2D64AF7900844E23 /* Exceptions for "TCA" folder in "ReactiveCounterAppTests" target */,
+				1B75E69C2D64AF7900844E23 /* Exceptions for "TCA" folder in "SingleCounterWidgetExtension" target */,
+			);
+			path = TCA;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +178,7 @@
 			files = (
 				1B2C33C42D6327900053F693 /* SwiftUI.framework in Frameworks */,
 				1B2C33C22D6327900053F693 /* WidgetKit.framework in Frameworks */,
+				1B75E6A62D64B4A800844E23 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				1B2C33D92D6327A70053F693 /* SingleCounterWidgetExtension.entitlements */,
+				1B75E6802D64AF3300844E23 /* Model */,
+				1B75E6872D64AF4100844E23 /* Util */,
+				1B75E6932D64AF7900844E23 /* TCA */,
 				1B49001F2D6145890067B7A3 /* ReactiveCounterApp */,
 				1B4900302D61458B0067B7A3 /* ReactiveCounterAppTests */,
 				1B49003A2D61458B0067B7A3 /* ReactiveCounterAppUITests */,
@@ -199,6 +263,7 @@
 			);
 			name = SingleCounterWidgetExtension;
 			packageProductDependencies = (
+				1B75E6A52D64B4A800844E23 /* ComposableArchitecture */,
 			);
 			productName = SingleCounterWidgetExtension;
 			productReference = 1B2C33BF2D63278F0053F693 /* SingleCounterWidgetExtension.appex */;
@@ -220,6 +285,9 @@
 			);
 			fileSystemSynchronizedGroups = (
 				1B49001F2D6145890067B7A3 /* ReactiveCounterApp */,
+				1B75E6802D64AF3300844E23 /* Model */,
+				1B75E6872D64AF4100844E23 /* Util */,
+				1B75E6932D64AF7900844E23 /* TCA */,
 			);
 			name = ReactiveCounterApp;
 			packageProductDependencies = (
@@ -594,11 +662,12 @@
 				DEVELOPMENT_TEAM = 2A7R4ZP8WU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Counter;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,11 +693,12 @@
 				DEVELOPMENT_TEAM = 2A7R4ZP8WU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Counter;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -776,6 +846,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1B75E6A52D64B4A800844E23 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BE0A3362D63F128003E121C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		1BE0A3372D63F128003E121C /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1BE0A3362D63F128003E121C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;

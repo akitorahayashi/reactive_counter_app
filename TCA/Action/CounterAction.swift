@@ -14,4 +14,5 @@ enum CounterAction {
     case decreaseCount(UUID)
     case updateTitle(UUID, String?)
     case updateMemo(UUID, String?)
+    case loadCounters
 }
