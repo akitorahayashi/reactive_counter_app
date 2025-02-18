@@ -9,5 +9,5 @@ import WidgetKit
 
 struct SCEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let count: Int
 }

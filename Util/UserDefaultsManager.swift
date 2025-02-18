@@ -18,10 +18,10 @@ final class UserDefaultsManager {
     
     // MARK: - Keys
     enum UserDefaultsKeys: String {
-        case rcAppState
+        case rcAppStateKey
     }
     
-    // MARK: - Operation
+    // MARK: - Functions
     func save<T: Codable>(_ item: T, forKey key: UserDefaultsKeys) throws {
         do {
             let data = try JSONEncoder().encode(item)

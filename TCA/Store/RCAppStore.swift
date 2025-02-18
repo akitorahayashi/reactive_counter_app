@@ -15,7 +15,7 @@ enum RCAppStore {
     }
     
     static let store = Store(
-        initialState: UserDefaultsManager.shared.load(forKey: .rcAppState) ?? RCAppState(),
+        initialState: UserDefaultsManager.shared.load(forKey: .rcAppStateKey) ?? RCAppState(),
         reducer: { CounterReducer() }
     )
 }

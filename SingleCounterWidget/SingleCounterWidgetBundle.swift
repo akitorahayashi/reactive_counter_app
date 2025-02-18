@@ -12,6 +12,5 @@ import SwiftUI
 struct SingleCounterWidgetBundle: WidgetBundle {
     var body: some Widget {
         SingleCounterWidget()
-        SingleCounterWidgetControl()
     }
 }

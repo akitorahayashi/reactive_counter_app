@@ -34,7 +34,7 @@ struct CounterReducer: Reducer {
             self.updateCounterMemo(in: &state, counterID: counterID, newMemo: newMemo)
         }
         
-        try? UserDefaultsManager.shared.save(state, forKey: .rcAppState)
+        try? UserDefaultsManager.shared.save(state, forKey: .rcAppStateKey)
         return .none
     }
     

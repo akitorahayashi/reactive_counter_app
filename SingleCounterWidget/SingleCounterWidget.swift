@@ -8,20 +8,16 @@
 import WidgetKit
 import SwiftUI
 
+// ウィジェットの定義
 struct SingleCounterWidget: Widget {
     let kind: String = "SingleCounterWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: SCProvider()) { entry in
-            SingleCounterWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+        AppIntentConfiguration(kind: kind, intent: EmptyConfigurationIntent.self, provider: SimpleProvider()) { entry in
+            SingleCounterWidgetView(entry: entry)
         }
+        .configurationDisplayName("Single Counter")
+        .description("A widget with a single counter, plus and minus buttons.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
-}
-
-#Preview(as: .systemSmall) {
-    SingleCounterWidget()
-} timeline: {
-    SCEntry(date: .now, configuration: .smiley)
-    SCEntry(date: .now, configuration: .starEyes)
 }

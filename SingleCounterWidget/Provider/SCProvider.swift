@@ -7,30 +7,21 @@
 
 import WidgetKit
 
-struct SCProvider: AppIntentTimelineProvider {
+struct SimpleProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SCEntry {
-        SCEntry(date: Date(), configuration: ConfigurationAppIntent())
-    }
-
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SCEntry {
-        SCEntry(date: Date(), configuration: configuration)
+        SCEntry(date: Date(), count: 0)
     }
     
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SCEntry> {
-        var entries: [SCEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SCEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        return Timeline(entries: entries, policy: .atEnd)
+    func snapshot(for configuration: EmptyConfigurationIntent, in context: Context) async -> SCEntry {
+        return SCEntry(date: Date(), count: 3)
     }
+    
+    func timeline(for configuration: EmptyConfigurationIntent, in context: Context) async -> Timeline<SCEntry> {
+        let appState: RCAppStore.RCAppState? = UserDefaultsManager.shared.load(forKey: .rcAppStateKey)
+        let count = appState?.counters.first?.count ?? 0
 
-//    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
+        let entry = SCEntry(date: Date(), count: count)
+        
+        return Timeline(entries: [entry], policy: .never)
+    }
 }
